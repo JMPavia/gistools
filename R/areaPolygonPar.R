@@ -3,7 +3,6 @@
 #' Parallel version of areaPolygon from geosphere.
 #' @description
 #' Compute the area of a polygon on a sphere. Polygons should not self-intersect. Parallel version of areaPolygon.
-#' 
 #' @param poly a \code{SpatialPolygonsDataFrame}
 #' @return a vector of areas
 areaPolygonPar <- function(poly){
