@@ -7,7 +7,7 @@ Author: Kendon Bell
 Maintainer: Kendon Bell <kmb56@berkeley.edu>
 Description: Collection of gistools, mostly for personal use.
 License: GPL >= 2.0
-Depends:     
+Depends:
     R (>= 3.0.0),
     sp,
     foreach,
@@ -29,3 +29,4 @@ Collate:
     'gridRowsWeightsSpPoly.R'
     'overGridPoly.R'
     'overPolyPoly.R'
+    'testing.R'

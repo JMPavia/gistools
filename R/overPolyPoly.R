@@ -1,4 +1,4 @@
-#' @export
+#' # @export
 #' @include gAreaHoles.R
 #' @title
 #' Aggregate an attribute of a polygon onto another polygon.
@@ -39,6 +39,7 @@
 
 
 overPolyPoly <- function(polyX, idX, polyY, varY, FUN, noIntersectReturn) {
+  stop("Do not use, this function is not complete.")
   polyY$id <- 1:NROW(polyY)
   
   cl <- makeCluster(detectCores())

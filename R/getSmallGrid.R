@@ -6,15 +6,19 @@
 #' a polygon.
 #' @param thisPoly polygon that the cells will surround
 #' @param brick bricked \code{SpatialGridDataFrame} that will be shrunk
-#' @param gridArcMin cell size for \code{brick}
+#' @param spgridGridSlot The \code{grid} slot from the given 
+#' \code{SpatialGridDataFrame}
 #' @return a raster brick object (subset of brick)
-getSmallGrid <- function(thisPoly, brick, gridArcMin) {
+getSmallGrid <- function(thisPoly, brick, spgridGridSlot) {
   # This subsets a RasterBrick object, converted from a SpatialGridDataFrame using brick() from the 'raster' package, and
   # returns a rectangular smaller grid, around a given SpatialPolygonDataFrame of length one.
   bb <- bbox(thisPoly)
-  gridArcDegree <- gridArcMin/60
   
-  e <- extent(bb[1, 1] - gridArcDegree, bb[1, 2] + gridArcDegree, bb[2, 1] - gridArcDegree, bb[2, 2] + gridArcDegree)
+  cellX <- spgridGridSlot@cellsize[1]
+  cellY <- spgridGridSlot@cellsize[2]
+  
+  e <- extent(bb[1, 1] - cellX, bb[1, 2] + cellX, 
+              bb[2, 1] - cellY, bb[2, 2] + cellY)
   newGrid <- crop(brick, e)
   
   sge <- as(newGrid, "SpatialGridDataFrame")
